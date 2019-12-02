@@ -13,6 +13,11 @@
     <script src="./data/charTypes/strong.js"></script>
     <script src="./data/charTypes/intelligent.js"></script>
     <script src="./data/charTypes/agile.js"></script>
+
+    <script src="./data/profTypes/animalHandler.js"></script>
+    <script src="./data/profTypes/weaponCrafter.js"></script>
+    <script src="./data/profTypes/merchant.js"></script>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
@@ -23,6 +28,7 @@
       rel="stylesheet"
     />
     <link href="style.css" rel="stylesheet" />
+    <link href="characterSheetStyle.css" rel="stylesheet" />
   </head>
 
   <!-- BODY -->
@@ -51,24 +57,28 @@
           <h2>Player Information</h2>
           <form class="form-wrapper">
             <div class="form-group">
+              <h3>First Name</h3>
               <input
                 type="text"
                 class="form-control"
                 id="first-name-field"
                 placeholder="Enter First Name"
               />
+              <h3>Last Name</h3>
               <input
                 type="text"
                 class="form-control"
                 id="last-name-field"
                 placeholder="Enter Last Name"
               />
+              <h3>Email Address</h3>
               <input
                 type="email"
                 class="form-control"
                 id="email-field"
                 placeholder="Enter Email Address"
               />
+              <h3>Campaign Number</h3>
               <input
                 type="text"
                 class="form-control"
@@ -86,48 +96,56 @@
           <h2>Character Information</h2>
           <form class="wrapper">
             <div class="form-group">
+              <h3>Character First Name</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-first-name-field"
                 placeholder="Enter Character First Name"
               />
+              <h3>Character Last Name</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-last-name-field"
                 placeholder="Enter Character Last Name"
               />
+              <h3>Character Age</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-age-field"
                 placeholder="Enter Character Age"
               />
+              <h3>Character Race</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-racee-field"
                 placeholder="Enter Character Race"
               />
+              <h3>Character Height</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-heights-field"
                 placeholder="Enter Character Height"
               />
+              <h3>Character Weight</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-weight-field"
                 placeholder="Enter Character Weight"
               />
+              <h3>Character Eye Color</h3>
               <input
                 type="text"
                 class="form-control"
                 id="character-eye-color-field"
                 placeholder="Enter Character Eye Color"
               />
+              <h3>Character Skin Color</h3>
               <input
                 type="text"
                 class="form-control"
@@ -142,44 +160,46 @@
       <section>
         <div>
           <h1>Build Your Skills</h1>
-          <h2>Character Type</h2>
+          </form>
+          <h2 style="margin-top: 60px">Character Profession</h2>
+          <form class="form-wrapper-wide">
+            <select
+              name="character-profession-dropdown"
+              id="character-profession-dropdown"
+              class="form-control dropdown"
+              autocomplete="off"
+            >
+              <option selected>You Must Select One</option>
+              <option>Weapon Crafter</option>
+              <option>Merchant</option>
+              <option>Animal Handler</option>
+            </select>
+            <div id="profession"></div>
+          </form>
+          <h2 style="margin-top: 60px">Character Type</h2>
           <form class="form-wrapper-wide">
             <div class="form-group"></div>
             <select
               name="character-type-dropdown"
               id="character-type-dropdown"
               class="form-control dropdown"
+              autocomplete="off"
             >
               <option selected>You Must Select One</option>
               <option>Strong</option>
               <option>Intelligent</option>
               <option>Agile</option>
             </select>
-            <div id="abilities">
-              <h4>Abilities</h4>
-              <h4>Spells</h4>
+            <div id="abilities"></div>
+              
+              
               <div id="spells"></div>
-              <h4>Cantrips</h4>
+              
               <div id="cantrips"></div>
             </div>
-          </form>
-          <h2>Character Profession</h2>
-          <form class="form-wrapper">
-            <select
-              name="character-profession-dropdown"
-              id="character-profession-dropdown"
-              class="form-control dropdown"
-            >
-              <option selected>You Must Select One</option>
-              <option>Weapon Profession</option>
-              <option>Merchant</option>
-              <option>Animal Handler</option>
-            </select>
-            <div id="passive"></div>
-            <br />
-            <br />
-            <br />
-          </form>
+          <br />
+          <br />
+          <br />
               <button id="character-submit" class="btn btn-primary">
                 GENERATE CHARACTER SHEET
               </button>
@@ -191,5 +211,6 @@
     <script src="./charSheetUI.js"></script>
     <script src="./characterSheet.js"></script>
     <script src="./eventHandlers.js"></script>
+    <script></script>
   </body>
 </html>

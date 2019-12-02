@@ -1,33 +1,37 @@
 $("#character-type-dropdown").change(ev => {
   let val = ev.target.value;
+  chosenSpells.activeAbilities.spells = []
+  chosenSpells.activeAbilities.cantrips = []
 
   if (val === "Strong") {
-      CHARACTERSHEET().getAbilityHTML(
-        CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "spells")
-    );
     $("#spells").html(`
+    <h2>Abilities</h2>
+    <h3>Spells (CHOOSE UP TO THREE)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "spells")
     )}
     `);
     $("#cantrips").html(`
+    <h3>Cantrips (CHOOSE UP TO THREE)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "cantrips")
     )}
     `);
-    $("#passive").html(`
-    ${CHARACTERSHEET().getAbilityHTML(
-      CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "cantrips")
-    )}
-    `);
+    // $("#passive").html(`
+    // ${CHARACTERSHEET().getAbilityHTML(
+    //   CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "cantrips")
+    // )}
+    // `);
   } else if (val === "Intelligent") {
-    console.log(INTELLIGENT);
     $("#spells").html(`
+      <h2>Abilities</h2>
+      <h3>Spells (CHOOSE UP TO THREE)</h3>
       ${CHARACTERSHEET().getAbilityHTML(
         CHARACTERSHEET().getCharTypeAbilities(INTELLIGENT, "active", "spells")
       )} 
      `);
     $("#cantrips").html(`
+    <h3>Cantrips (CHOOSE UP TO THREE)</h3>
       ${CHARACTERSHEET().getAbilityHTML(
         CHARACTERSHEET().getCharTypeAbilities(INTELLIGENT, "active", "cantrips")
       )} 
@@ -37,20 +41,23 @@ $("#character-type-dropdown").change(ev => {
     // `)
   } else if (val === "Agile") {
     $("#spells").html(`
+    <h2>Abilities</h2>
+    <h3>Spells (CHOOSE UP TO THREE)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(AGILE, "active", "spells")
     )}
     `);
     $("#cantrips").html(`
+    <h3>Cantrips (CHOOSE UP TO THREE)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(AGILE, "active", "cantrips")
     )}
     `);
-    $("#passive").html(`
-    ${CHARACTERSHEET().getAbilityHTML(
-      CHARACTERSHEET().getCharTypeAbilities(AGILE, "passive")
-    )}
-    `);
+    // $("#passive").html(`
+    // ${CHARACTERSHEET().getAbilityHTML(
+    //   CHARACTERSHEET().getCharTypeAbilities(AGILE, "passive")
+    // )}
+    // `);
   }
   // SPELL CARD lOGIC
 
@@ -62,25 +69,20 @@ $("#character-type-dropdown").change(ev => {
       $(ev.target).removeClass("spell-card-active");
       //END VISUALS
       if (ev.target.parentElement.id === "spells") {
-        console.log("chose a spell");
         chosenSpells.activeAbilities.spells.splice(
           chosenSpells.activeAbilities.spells.indexOf(
             ev.target.firstElementChild.innerText),1
         );
-        console.log(chosenSpells.activeAbilities.spells);
       }
 
       if (ev.target.parentElement.id === "cantrips") {
-        console.log("chose a cantrip");
         chosenSpells.activeAbilities.cantrips.splice(
           chosenSpells.activeAbilities.cantrips.indexOf(
             ev.target.firstElementChild.innerText
           ),
           1
         );
-        console.log(chosenSpells.activeAbilities.cantrips);
       }
-      console.log(ev.target);
 
       return true;
     }
@@ -95,32 +97,48 @@ $("#character-type-dropdown").change(ev => {
       //VISUALS - ACTIVE
       $(ev.target).addClass("spell-card-active");
       //END VISUALS
-      console.log(ev.target, chosenSpells);
 
       if (ev.target.parentElement.id === "spells") {
-        console.log("chose a spell");
-        console.log(
-          chosenSpells.activeAbilities[ev.target.parentElement.id].length
-        );
         chosenSpells.activeAbilities[ev.target.parentElement.id].push(
           ev.target.firstElementChild.innerText
         );
-        console.log(chosenSpells.activeAbilities.spells);
       }
 
       if (ev.target.parentElement.id === "cantrips") {
-        console.log("chose a cantrip");
         chosenSpells.activeAbilities[ev.target.parentElement.id].push(
           ev.target.firstElementChild.innerText
         );
-        console.log(chosenSpells.activeAbilities.cantrips);
       }
     }
   });
   return {};
 });
 
-$("#character-profession-dropdown").change();
+$("#character-profession-dropdown").change((ev) => {
+  let val = ev.target.value;
+
+  if(val === "Weapon Crafter") {
+   $("#profession").html(`
+    <h2>Description Of Profession</h2>
+    ${WEAPON_CRAFTER.description}
+   `)
+  }
+  
+  if(val === "Merchant") {
+    $("#profession").html(`
+    <h2>Description Of Profession</h2>
+    ${MERCHANT.description}
+    `)
+  }
+
+  if(val === "Animal Handler") {
+    $("#profession").html(`
+    <h2>Description Of Profession</h2>
+    ${ANIMAL_HANDLER.description}
+    `)
+  }
+
+});
 
 // Spell Cards
 // 
@@ -145,6 +163,7 @@ $("#character-submit").click((ev) => {
     },
     "skills": {
       "charType": $("#character-type-dropdown").val(),
+      "profType": $("#character-profession-dropdown").val(),
       "active": {
         "spells": [...chosenSpells.activeAbilities.spells],
         "cantrips": [...chosenSpells.activeAbilities.cantrips]
@@ -153,10 +172,10 @@ $("#character-submit").click((ev) => {
     }
   }
   
-  $("#modal").addClass("full-page-active")
-  $("#character-content").html(MODAL(playerInfo))
+  // $("#modal").addClass("full-page-active")
+  $(".pageWrapper").html(MODAL(playerInfo))
 })
 
 $("#close").click((ev) => {
-  $("#modal").removeClass("full-page-active")
+  // $("#modal").removeClass("full-page-active")
 })

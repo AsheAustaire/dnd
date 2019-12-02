@@ -1,0 +1,23 @@
+
+.character-sheet h1 {
+  font-size: 32px;
+  font-family: "Domine";
+}
+
+.character-sheet .page-title {
+text-align: center;
+font-size: 40px;
+}
+
+.character-sheet h2 {
+  font-family: "Alatsi";
+  margin-top: 30px;
+}
+.character-sheet h3 {
+  font-family: "Domine" ;
+}
+.spell-type {
+  text-decoration: underline;
+  font-family: "Alatsi";
+  font-weight: 900;
+}
