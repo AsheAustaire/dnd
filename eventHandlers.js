@@ -6,13 +6,13 @@ $("#character-type-dropdown").change(ev => {
   if (val === "Strong") {
     $("#spells").html(`
     <h2>Abilities</h2>
-    <h3>Spells (CHOOSE UP TO THREE)</h3>
+    <h3>Spells (MAX 3)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "spells")
     )}
     `);
     $("#cantrips").html(`
-    <h3>Cantrips (CHOOSE UP TO THREE)</h3>
+    <h3>Cantrips (MAX 3)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(STRONG, "active", "cantrips")
     )}
@@ -25,13 +25,13 @@ $("#character-type-dropdown").change(ev => {
   } else if (val === "Intelligent") {
     $("#spells").html(`
       <h2>Abilities</h2>
-      <h3>Spells (CHOOSE UP TO THREE)</h3>
+      <h3>Spells (MAX 3)</h3>
       ${CHARACTERSHEET().getAbilityHTML(
         CHARACTERSHEET().getCharTypeAbilities(INTELLIGENT, "active", "spells")
       )} 
      `);
     $("#cantrips").html(`
-    <h3>Cantrips (CHOOSE UP TO THREE)</h3>
+    <h3>Cantrips (MAX 3)</h3>
       ${CHARACTERSHEET().getAbilityHTML(
         CHARACTERSHEET().getCharTypeAbilities(INTELLIGENT, "active", "cantrips")
       )} 
@@ -42,13 +42,13 @@ $("#character-type-dropdown").change(ev => {
   } else if (val === "Agile") {
     $("#spells").html(`
     <h2>Abilities</h2>
-    <h3>Spells (CHOOSE UP TO THREE)</h3>
+    <h3>Spells (MAX 3)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(AGILE, "active", "spells")
     )}
     `);
     $("#cantrips").html(`
-    <h3>Cantrips (CHOOSE UP TO THREE)</h3>
+    <h3>Cantrips (MAX 3)</h3>
     ${CHARACTERSHEET().getAbilityHTML(
       CHARACTERSHEET().getCharTypeAbilities(AGILE, "active", "cantrips")
     )}

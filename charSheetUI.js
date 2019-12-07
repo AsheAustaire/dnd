@@ -45,6 +45,42 @@ const MODAL = (compiledForm) => {
   <h3><b>SKIN COLOR</b>: ${charInfo.eyeColor}</h3>
   <hr/>
   <h1>ABILITIES AND SPELLS</h1>
+ 
+  <div classe="ability-score-wrapper">
+      <h3>HP</h3>
+      <div class="ability-score"></div>
+  </div>
+  <div classe="ability-score-wrapper">
+      <h3>AC</h3>
+      <div class="ability-score"></div>
+  </div>
+  <div class="ability-score-array">
+    <div classe="ability-score-wrapper">
+      <h3>STR</h3>
+      <div class="ability-score"></div>
+    </div>
+    <div class="ability-score-wrapper">
+      <h3>DEX</h3>
+      <div class="ability-score"></div>
+    </div>
+    <div class="ability-score-wrapper">
+      <h3>CHAR</h3>
+      <div class="ability-score"></div>
+    </div>
+    <div class="ability-score-wrapper">
+      <h3>INT</h3>
+      <div class="ability-score"></div>
+    </div>
+    <div class="ability-score-wrapper">
+      <h3>WIS</h3>
+      <div class="ability-score"></div>
+    </div>
+    <div class="ability-score-wrapper">
+      <h3>CONST</h3>
+      <div class="ability-score"></div>
+    </div>
+  </div>
+
   <h2 style="margin-bottom: 20px;">CHARACTER PROFESSION: ${compiledForm.skills.profType.toUpperCase()}</h2>
   <h3 class="spell-type">Description</h3>
   <p>${getProfessionDescription(compiledForm.skills.profType)}</p>
@@ -57,5 +93,6 @@ const MODAL = (compiledForm) => {
   <h3 class="spell-type">Cantrips</h3>
   ${CHARACTERSHEET().getAbilityHTMLWithSpellLookup(chosenSpells.activeAbilities.cantrips, getCharTypeObjFromString(compiledForm.skills.charType.toLowerCase()), "active", "cantrips")}
   </div>
+
   `
 };
