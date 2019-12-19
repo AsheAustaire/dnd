@@ -1,0 +1,94 @@
+html {
+  height: 100%;
+}
+@import "@material/card/mdc-card";
+
+/* MAIN NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 60px;
+  background-color: rgb(51, 51, 51)
+}
+
+nav a {
+  display: block;
+  width: 35px;
+  height: 35px;
+
+  background-image: url(../../assets/logo-dnd-red.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+/* FOOTER */
+footer {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+
+  background-color: rgb(0, 0, 0);
+}
+
+footer h1 {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+}
+
+/* HERO */
+.introduction-wrapper {
+
+  width: 100%;
+  height: 250px;
+
+  background-image: linear-gradient(to bottom, transparent 65%, 90%, white), url(../../assets/landscape-cave-fungus.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  transition: height 1s ease, background-position 20s ease;
+
+}
+
+@media (max-width: 760px) {
+  .introduction-wrapper {
+    background-image: linear-gradient(to bottom, transparent 55%, white), url(../../assets/landscape-cave-fungus.jpg);
+    height: 60px
+  }
+}
+
+/* CHOOSE YOUR ADVENTURE */
+
+.choose-your-adventure {
+  width: auto;
+}
+
+.choose-your-adventure h1 {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.mdc-card {
+  width: 300px;
+  margin: 30px;
+  
+}
+
+.mdc-card__media-content {
+  background-image: url("../../assets/characterBuilder.png");
+  background-size: contain;
+  background-position: center;
+}

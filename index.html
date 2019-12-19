@@ -1,216 +1,62 @@
-<!DOCTYPE html>
 <html>
   <!-- HEAD -->
   <head>
-    <title>Ashe's DnD</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>DnD Lite</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Bootstrap CDN -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="./data/charTypes/strong.js"></script>
-    <script src="./data/charTypes/intelligent.js"></script>
-    <script src="./data/charTypes/agile.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <link rel="stylesheet" href="./src/css/mycharacter.css">
 
-    <script src="./data/profTypes/animalHandler.js"></script>
-    <script src="./data/profTypes/weaponCrafter.js"></script>
-    <script src="./data/profTypes/merchant.js"></script>
-
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-      crossorigin="anonymous"
-    ></script>
+    <!-- Material Design Components -->
     <link
-      href="https://fonts.googleapis.com/css?family=Alatsi|Domine&display=swap"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
       rel="stylesheet"
     />
-    <link href="style.css" rel="stylesheet" />
-    <link href="characterSheetStyle.css" rel="stylesheet" />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
   </head>
 
   <!-- BODY -->
   <body>
-    <div id="modal" class="full-page">
-      <article id="characterSheetModal" class="myModal myModal-active">
-        <svg
-          id="close"
-          class="close"
-          viewPort="0 0 12 12"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2" />
-          <line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2" />
-        </svg>
-        <section id="character-content"></section>
-      </article>
-    </div>
+  <!-- HEADER -->
+    <header>
+      <nav>
+       <a href="https://asheaustaire.com"></a>
+     </nav>
+     <section class="introduction-wrapper"></section>
+    </header>
 
-    <article class="pageWrapper">
-      <!-- PLAYER INFORMATION-->
-      <section>
-        <div>
-          <h1>About You</h1>
-          <h2>Player Information</h2>
-          <form class="form-wrapper">
-            <div class="form-group">
-              <h3>Player First Name</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="first-name-field"
-                placeholder="Enter Player First Name"
-              />
-              <h3>Player Last Name</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="last-name-field"
-                placeholder="Enter Player Last Name"
-              />
-              <h3>Email Address</h3>
-              <input
-                type="email"
-                class="form-control"
-                id="email-field"
-                placeholder="Enter Email Address"
-              />
-              <h3>Campaign Number</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="campaign-number-field"
-                placeholder="Campaign Number"
-              />
-            </div>
-          </form>
-        </div>
-      </section>
-      <!-- BUILD YOUR CHARACTER -->
-      <section>
-        <div>
-          <h1>About Your Character</h1>
-          <h2>Character Information</h2>
-          <form class="wrapper">
-            <div class="form-group">
-              <h3>Character First Name</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-first-name-field"
-                placeholder="Enter Character First Name"
-              />
-              <h3>Character Last Name</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-last-name-field"
-                placeholder="Enter Character Last Name"
-              />
-              <h3>Character Age</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-age-field"
-                placeholder="Enter Character Age"
-              />
-              <h3>Character Race</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-racee-field"
-                placeholder="Enter Character Race"
-              />
-              <h3>Character Height</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-heights-field"
-                placeholder="Enter Character Height"
-              />
-              <h3>Character Weight</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-weight-field"
-                placeholder="Enter Character Weight"
-              />
-              <h3>Character Eye Color</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="character-eye-color-field"
-                placeholder="Enter Character Eye Color"
-              />
-              <h3>Character Skin Color</h3>
-              <input
-                type="text"
-                class="form-control"
-                id="skin-color-field"
-                placeholder="Enter Character Skin Color"
-              />
-            </div>
-          </form>
-        </div>
-      </section>
-      <!-- BUILD YOUR SKILLS -->
-      <section>
-        <div>
-          <h1>Build Your Skills</h1>
-          </form>
-          <h2 style="margin-top: 60px">Character Profession</h2>
-          <form class="form-wrapper-wide">
-            <select
-              name="character-profession-dropdown"
-              id="character-profession-dropdown"
-              class="form-control dropdown"
-              autocomplete="off"
-            >
-              <option selected>You Must Select One</option>
-              <option>Weapon Crafter</option>
-              <option>Merchant</option>
-              <option>Animal Handler</option>
-            </select>
-            <div id="profession"></div>
-          </form>
-          <h2 style="margin-top: 60px">Character Type</h2>
-          <form class="form-wrapper-wide">
-            <div class="form-group"></div>
-            <select
-              name="character-type-dropdown"
-              id="character-type-dropdown"
-              class="form-control dropdown"
-              autocomplete="off"
-            >
-              <option selected>You Must Select One</option>
-              <option>Strong</option>
-              <option>Intelligent</option>
-              <option>Agile</option>
-            </select>
-            <div id="abilities"></div>
-              
-              
-              <div id="spells"></div>
-              
-              <div id="cantrips"></div>
-            </div>
-          <br />
-          <br />
-          <br />
-              <button id="character-submit" class="btn btn-primary">
-                GENERATE CHARACTER SHEET
-              </button>
-        </div>
-      </section>
-    </article>
-    <!-- JAVASCRIPT -->
-    <script src="./playerInfo.js"></script>
-    <script src="./charSheetUI.js"></script>
-    <script src="./characterSheet.js"></script>
-    <script src="./eventHandlers.js"></script>
-    <script></script>
+    <!-- MAIN PAGE -->
+    <main>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <h1>CREATED BY ASHE AUSTAIRE</h1>
+    </footer>
+
+    <!-- PAGES -->
+    <script src="./pages/myHomepage.js"></script>
+    <script src="./pages/myCharacterSheet.js"></script>
+    
+    <!-- SERVICES -->
+    <script src="./services/PageService.js"></script>
+    <script src="./services/UiServices.js"></script>
+
+    <!-- MAIN -->
+    <script src="./src/js/main.js"></script>
+
+
   </body>
 </html>
